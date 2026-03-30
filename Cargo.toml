@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+# SPDX-FileCopyrightText: None
+
+[package]
+name = "auto-chmod"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "auto-chmod"
+path = "src/main.rs"
+
+[dependencies]
+gettext-rs = { version = "0.7.7", features = ["gettext-system"] }
+rustix = { version = "1.1.4", features = ["fs"] }
+shell-words = "1.1.1"
