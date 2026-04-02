@@ -18,9 +18,9 @@ fn main() {
         Err(_) => return,
     };
 
-    let target = match words.iter().find(|w| w.contains('/')) {
-        Some(t) => t.clone(),
-        None => return,
+    let target = match words.first() {
+        Some(t) if t.contains('/') => t.clone(),
+        _ => return,
     };
 
     let fd = match open(&*target, OFlags::RDONLY | OFlags::NOFOLLOW, Mode::empty()) {
