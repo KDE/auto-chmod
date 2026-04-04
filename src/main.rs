@@ -48,7 +48,7 @@ fn main() {
     // Translate [y/N] to match your locale's yes/no keys.
     print!(
         "{}",
-        gettext("{} is not executable. Make it executable and run? [y/N] ").replace("{}", &target)
+        gettext("You are trying to execute {}. However, it is not executable. Make it executable and run? [y/N] ").replace("{}", &target)
     );
     io::stdout().flush().ok();
 
