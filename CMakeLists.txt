@@ -5,14 +5,15 @@ cmake_minimum_required(VERSION 3.25)
 project(auto-chmod)
 
 include(GNUInstallDirs)
+
 find_package(ECM REQUIRED NO_MODULE)
+find_package(Corrosion REQUIRED)
+
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 find_package(KF6I18n REQUIRED)
-find_package(Corrosion REQUIRED)
 
-corrosion_import_crate(MANIFEST_PATH Cargo.toml)
+corrosion_import_crate(MANIFEST_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Cargo.toml)
 
 ki18n_install(po)
-
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/auto-chmod DESTINATION ${CMAKE_INSTALL_LIBDIR})
